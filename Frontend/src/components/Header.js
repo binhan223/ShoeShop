@@ -23,8 +23,8 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 d-flex align-items-center display-none">
-              <p>+84 788 030 999</p>
-              <p>info@example.com</p>
+              <p>+84 85 725 6822</p>
+              <p>admin@gmail.com</p>
             </div>
             <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
               <Link to="">
@@ -72,7 +72,7 @@ const Header = () => {
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/profile">
-                          Profile
+                          Trang cá nhân
                         </Link>
                         <Link
                           className="dropdown-item"
@@ -136,21 +136,21 @@ const Header = () => {
                     </button>
                     <div className="dropdown-menu">
                       <Link className="dropdown-item" to="/profile">
-                        Profile
+                        Trang cá nhân
                       </Link>
                       <Link
                         className="dropdown-item"
                         to="#"
                         onClick={logoutHandler}
                       >
-                        Logout
+                        Đăng xuất
                       </Link>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <Link to="/Register">Register</Link>
-                    <Link to="/login">Login</Link>
+                    <Link to="/Register">Đăng kí</Link>
+                    <Link to="/login">Đăng nhập</Link>
                   </>
                 )}
                 <Link to="/cart">

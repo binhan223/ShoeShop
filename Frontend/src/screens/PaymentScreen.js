@@ -31,7 +31,7 @@ const PaymentScreen = ({ history }) => {
           className="Login2 col-md-8 col-lg-4 col-11"
           onSubmit={submitHandler}
         >
-          <h6>SELECT PAYMENT METHOD</h6>
+          <h6>CHỌN HÌNH THỨC THANH TOÁN</h6>
           <div className="payment-container">
             <div className="radio-container">
               <input
@@ -46,7 +46,7 @@ const PaymentScreen = ({ history }) => {
 
           <button type="submit">
             <Link to="/placeorder" className="text-white">
-              Continue
+              Tiếp tục
             </Link>
           </button>
         </form>

@@ -101,19 +101,19 @@ const SingleProduct = ({ history, match }) => {
 
                   <div className="product-count col-lg-7 ">
                     <div className="flex-box d-flex justify-content-between align-items-center">
-                      <h6>Price</h6>
+                      <h6>Giá tiền</h6>
                       <span>${product.price}</span>
                     </div>
                     <div className="flex-box d-flex justify-content-between align-items-center">
-                      <h6>Status</h6>
+                      <h6>Tình trạng</h6>
                       {product.countInStock > 0 ? (
-                        <span>In Stock</span>
+                        <span>Còn trong kho</span>
                       ) : (
-                        <span>Unavailable</span>
+                        <span>Không còn trong kho</span>
                       )}
                     </div>
                     <div className="flex-box d-flex justify-content-between align-items-center">
-                      <h6>Reviews</h6>
+                      <h6>Đánh giá</h6>
                       <Rating
                         value={product.rating}
                         text={`${product.numReviews} reviews`}
@@ -122,7 +122,7 @@ const SingleProduct = ({ history, match }) => {
                     {product.countInStock > 0 ? (
                       <>
                         <div className="flex-box d-flex justify-content-between align-items-center">
-                          <h6>Quantity</h6>
+                          <h6>Số lượng</h6>
                           <select
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
@@ -140,7 +140,7 @@ const SingleProduct = ({ history, match }) => {
                           onClick={AddToCartHandle}
                           className="round-black-btn"
                         >
-                          Add To Cart
+                          Thêm vào giỏ hàng
                         </button>
                       </>
                     ) : null}
@@ -152,9 +152,9 @@ const SingleProduct = ({ history, match }) => {
             {/* RATING */}
             <div className="row my-5">
               <div className="col-md-6">
-                <h6 className="mb-3">REVIEWS</h6>
+                <h6 className="mb-3">ĐÁNH GIÁ</h6>
                 {product.reviews.length === 0 && (
-                  <Message variant={"alert-info mt-3"}>No Reviews</Message>
+                  <Message variant={"alert-info mt-3"}>Chưa có đánh giá</Message>
                 )}
                 {product.reviews.map((review) => (
                   <div
@@ -171,7 +171,7 @@ const SingleProduct = ({ history, match }) => {
                 ))}
               </div>
               <div className="col-md-6">
-                <h6>WRITE A CUSTOMER REVIEW</h6>
+                <h6>VIẾT ĐÁNH GIÁ</h6>
                 <div className="my-4">
                   {loadingCreateReview && <Loading />}
                   {errorCreateReview && (
@@ -183,22 +183,22 @@ const SingleProduct = ({ history, match }) => {
                 {userInfo ? (
                   <form onSubmit={submitHandler}>
                     <div className="my-4">
-                      <strong>Rating</strong>
+                      <strong>Xếp hạng</strong>
                       <select
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
                         className="col-12 bg-light p-3 mt-2 border-0 rounded"
                       >
-                        <option value="">Select...</option>
-                        <option value="1">1 - Poor</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="3">3 - Good</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="5">5 - Excellent</option>
+                        <option value="">Chọn...</option>
+                        <option value="1">1 - Kém</option>
+                        <option value="2">2 - Trung bình</option>
+                        <option value="3">3 - Bình thường</option>
+                        <option value="4">4 - Tốt</option>
+                        <option value="5">5 - Cực kì tốt</option>
                       </select>
                     </div>
                     <div className="my-4">
-                      <strong>Comment</strong>
+                      <strong>Bình luận</strong>
                       <textarea
                         row="3"
                         value={comment}
@@ -211,18 +211,18 @@ const SingleProduct = ({ history, match }) => {
                         disabled={loadingCreateReview}
                         className="col-12 bg-black border-0 p-3 rounded text-white"
                       >
-                        SUBMIT
+                        XÁC NHẬN
                       </button>
                     </div>
                   </form>
                 ) : (
                   <div className="my-3">
                     <Message variant={"alert-warning"}>
-                      Please{" "}
+                      Hãy{" "}
                       <Link to="/login">
-                        " <strong>Login</strong> "
+                        " <strong>Đăng nhập</strong> "
                       </Link>{" "}
-                      to write a review{" "}
+                      để viết đánh giá{" "}
                     </Message>
                   </div>
                 )}

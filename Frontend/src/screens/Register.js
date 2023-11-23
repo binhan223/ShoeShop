@@ -57,10 +57,10 @@ const Register = ({ location, history }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit">Register</button>
+          <button type="submit">Đăng kí</button>
           <p>
             <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-              I Have Account <strong>Login</strong>
+              Đã có tài khoản <strong>Đăng nhập</strong>
             </Link>
           </p>
         </form>

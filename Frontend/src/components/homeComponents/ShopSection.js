@@ -22,10 +22,10 @@ const ShopSection = () => {
   const [searchProduct, setSearchProduct] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
   const [sortName] = useState([
-    "Latest added",
-    "Oldest added",
-    "Price: low -> high",
-    "Price: hight -> low",
+    "Mới cập nhật",
+    "Cập nhập sớm nhất",
+    "Giá: thấp -> cao",
+    "Giá: cao -> thấp",
   ]);
   const [selectedSort, setSelectedSort] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -72,17 +72,17 @@ const ShopSection = () => {
   const getSortList = () => {
     if (!selectedSort) {
       return filterList;
-    } else if (selectedSort === "Latest added") {
+    } else if (selectedSort === "Mới cập nhật") {
       return filterList.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-    } else if (selectedSort === "Oldest added") {
+    } else if (selectedSort === "Cập nhập sớm nhất") {
       return filterList.sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
       );
-    } else if (selectedSort === "Price: low -> high") {
+    } else if (selectedSort === "Giá: thấp -> cao") {
       return filterList?.sort((a, b) => (a.price > b.price ? 1 : -1));
-    } else if (selectedSort === "Price: hight -> low") {
+    } else if (selectedSort === "Giá: cao -> thấp") {
       return filterList?.sort((a, b) => (a.price > b.price ? -1 : 1));
     }
   };
@@ -112,7 +112,7 @@ const ShopSection = () => {
                     <div className="col-lg-4 col-md-6 me-auto py-1">
                       <input
                         type="search"
-                        placeholder="Search..."
+                        placeholder="Tìm kiếm..."
                         className="form-control"
                         onChange={(e) => setSearchProduct(e.target.value)}
                       />
@@ -128,7 +128,7 @@ const ShopSection = () => {
                           className="form-select"
                           onChange={handleCategoryChange}
                         >
-                          <option value="">Select a category</option>
+                          <option value="">Chọn danh mục</option>
                           {categories.map((category) => (
                             <option value={category._id} key={category._id}>
                               {category.name}
@@ -143,7 +143,7 @@ const ShopSection = () => {
                         className="form-select"
                         onChange={handleSortChange}
                       >
-                        <option value="">Select a sort</option>
+                        <option value="">Sắp xếp theo</option>
                         {sortName.map((name) => (
                           <option value={name} key={name}>
                             {name}

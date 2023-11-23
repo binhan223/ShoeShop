@@ -35,7 +35,7 @@ const CartScreen = ({ match, location, history }) => {
       <div className="container">
         {cartItems.length === 0 ? (
           <div className=" alert alert-info text-center mt-3">
-            Your cart is empty
+           GIỎ HÀNG ĐANG TRỐNG
             <Link
               className="btn btn-success mx-5 px-5 py-3"
               to="/"
@@ -43,13 +43,13 @@ const CartScreen = ({ match, location, history }) => {
                 fontSize: "12px",
               }}
             >
-              SHOPPING NOW
+              MUA SẮM NGAY
             </Link>
           </div>
         ) : (
           <>
             <div className=" alert alert-info text-center mt-3">
-              Total Cart Products
+              CÁC SẢN PHẨM TRONG GIỎ HÀNG
               <Link className="text-success mx-2" to="/cart">
                 ({cartItems.length})
               </Link>
@@ -72,7 +72,7 @@ const CartScreen = ({ match, location, history }) => {
                   </Link>
                 </div>
                 <div className="cart-qty col-md-2 col-sm-5 mt-md-5 mt-3 mt-md-0 d-flex flex-column justify-content-center">
-                  <h6>QUANTITY</h6>
+                  <h6>SỐ LƯỢNG</h6>
                   <select
                     value={item.qty}
                     onChange={(e) =>
@@ -87,7 +87,7 @@ const CartScreen = ({ match, location, history }) => {
                   </select>
                 </div>
                 <div className="cart-price mt-3 mt-md-0 col-md-2 align-items-sm-end align-items-start  d-flex flex-column justify-content-center col-sm-7">
-                  <h6>PRICE</h6>
+                  <h6>GIÁ TIỀN</h6>
                   <h4>${item.price}</h4>
                 </div>
               </div>
@@ -95,17 +95,17 @@ const CartScreen = ({ match, location, history }) => {
 
             {/* End of cart iterms */}
             <div className="total">
-              <span className="sub">total:</span>
+              <span className="sub">tổng cộng:</span>
               <span className="total-price">${total}</span>
             </div>
             <hr />
             <div className="cart-buttons d-flex align-items-center row">
               <Link to="/" className="col-md-6 ">
-                <button>Continue To Shopping</button>
+                <button>Tiếp tục mua sắm</button>
               </Link>
               {total > 0 && (
                 <div className="col-md-6 d-flex justify-content-md-end mt-3 mt-md-0">
-                  <button onClick={checkOutHandler}>Checkout</button>
+                  <button onClick={checkOutHandler}>Thanh toán</button>
                 </div>
               )}
             </div>

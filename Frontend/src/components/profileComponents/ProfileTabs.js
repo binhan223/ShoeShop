@@ -40,13 +40,13 @@ const ProfileTabs = () => {
     // password match
     if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Passwords does not match", ToastObjects);
+        toastId.current = toast.error("Mật khẩu không khớp", ToastObjects);
       }
     } else {
       // update profile
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.success("Profile Updated", ToastObjects);
+        toastId.current = toast.success("Cập nhật thành công", ToastObjects);
       }
     }
   };
@@ -59,7 +59,7 @@ const ProfileTabs = () => {
       <form className="row  form-container" onSubmit={submitHandler}>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-fn">UserName</label>
+            <label for="account-fn">TÊN NGƯỜI DÙNG</label>
             <input
               className="form-control"
               type="text"
@@ -72,7 +72,7 @@ const ProfileTabs = () => {
 
         <div className="col-md-6">
           <div className="form">
-            <label for="account-email">E-mail Address</label>
+            <label for="account-email"> ĐỊA CHỈ E-mail</label>
             <input
               className="form-control"
               type="email"
@@ -83,7 +83,7 @@ const ProfileTabs = () => {
         </div>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-pass">New Password</label>
+            <label for="account-pass">MẬT KHẨU MỚI</label>
             <input
               className="form-control"
               type="password"
@@ -94,7 +94,7 @@ const ProfileTabs = () => {
         </div>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-confirm-pass">Confirm Password</label>
+            <label for="account-confirm-pass">XÁC NHẬN MẬT KHẨU</label>
             <input
               className="form-control"
               type="password"
@@ -103,7 +103,7 @@ const ProfileTabs = () => {
             />
           </div>
         </div>
-        <button type="submit">Update Profile</button>
+        <button type="submit">CẬP NHẬT THÔNG TIN</button>
       </form>
     </>
   );
