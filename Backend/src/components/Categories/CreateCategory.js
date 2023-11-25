@@ -25,7 +25,7 @@ const CreateCategory = () => {
 
   useEffect(() => {
     if (category) {
-      toast.success("Category Added", ToastObjects);
+      toast.success("Thêm thành công", ToastObjects);
       dispatch({ type: CATEGORY_CREATE_RESET });
       setName("");
       setDescription("");
@@ -49,7 +49,7 @@ const CreateCategory = () => {
           <form onSubmit={submitHandler}>
             <div className="mb-4">
               <label htmlFor="product_name" className="form-label">
-                Name
+                Tên
               </label>
               <input
                 type="text"
@@ -62,7 +62,7 @@ const CreateCategory = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="form-label">Description</label>
+              <label className="form-label">Mô tả</label>
               <textarea
                 placeholder="Type here"
                 className="form-control"
@@ -74,7 +74,7 @@ const CreateCategory = () => {
             </div>
 
             <div className="d-grid">
-              <button className="btn btn-primary py-3">Publish now</button>
+              <button className="btn btn-primary py-3">Thêm ngay</button>
             </div>
           </form>
         )}

@@ -107,12 +107,12 @@ const AddProductMain = () => {
         <form onSubmit={submitHandler}>
           <div className="content-header">
             <Link to="/products" className="btn btn-danger text-white">
-              Go to products
+              Đến sản phẩm
             </Link>
-            <h2 className="content-title">Create product</h2>
+            <h2 className="content-title">Thêm sản phẩm</h2>
             <div>
               <button type="submit" className="btn btn-primary">
-                Publish now
+                Thêm ngay
               </button>
             </div>
           </div>
@@ -124,7 +124,7 @@ const AddProductMain = () => {
                   {loading && <Loading />}
                   <div className="mb-4">
                     <label htmlFor="product_title" className="form-label">
-                      Product title
+                      Tên sản phẩm
                     </label>
                     <input
                       type="text"
@@ -138,7 +138,7 @@ const AddProductMain = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="product_price" className="form-label">
-                      Price
+                      Giá
                     </label>
                     <input
                       type="number"
@@ -155,7 +155,7 @@ const AddProductMain = () => {
                       htmlFor="product_countInStock"
                       className="form-label"
                     >
-                      Count In Stock
+                      Số lượng trong kho
                     </label>
                     <input
                       type="number"
@@ -168,7 +168,7 @@ const AddProductMain = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="form-label">Description</label>
+                    <label className="form-label">Mô tả</label>
                     <textarea
                       placeholder="Type here"
                       className="form-control"
@@ -179,7 +179,7 @@ const AddProductMain = () => {
                     ></textarea>
                   </div>
                   <div className="mb-4">
-                    <label className="form-label">Categories</label>
+                    <label className="form-label">Danh mục</label>
                     {loadingList ? (
                       <Loading />
                     ) : errorList ? (
@@ -192,7 +192,7 @@ const AddProductMain = () => {
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                       >
-                        <option value="">Select a category</option>
+                        <option value="">Chọn danh mục</option>
                         {categories.map((category) => (
                           <option value={category._id} key={category._id}>
                             {category.name}
@@ -208,7 +208,7 @@ const AddProductMain = () => {
               <div className="card mb-4 shadow-sm">
                 <div className="card-body">
                   <div className="mb-4">
-                    <label className="form-label">Image</label>
+                    <label className="form-label">Hình ảnh</label>
                     <input
                       id="previewImg"
                       className="form-control"
@@ -228,7 +228,7 @@ const AddProductMain = () => {
                             className="mb-4 btn btn-outline-success"
                             htmlFor="previewImg"
                           >
-                            Chose Image <i className="fas fa-upload"></i>
+                            Chọn hình ảnh <i className="fas fa-upload"></i>
                           </label>
                         </div>
                         <Message variant="alert-danger">{errorImage}</Message>
@@ -239,7 +239,7 @@ const AddProductMain = () => {
                           className="mb-4 btn btn-danger"
                           onClick={deleteUpload}
                         >
-                          Delete image
+                         Xóa hình ảnh
                         </div>
                         <Img
                           style={{
@@ -258,11 +258,11 @@ const AddProductMain = () => {
                             className="mb-4 btn btn-outline-success"
                             htmlFor="previewImg"
                           >
-                            Chose Image <i className="fas fa-upload"></i>
+                            Chọn hình ảnh <i className="fas fa-upload"></i>
                           </label>
                         </div>
                         <Message variant="alert-info">
-                          No Image, please upload.
+                          Chưa có hình ảnh, vui lòng tải lên.
                         </Message>
                       </>
                     )}

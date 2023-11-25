@@ -10,17 +10,17 @@ const OrderMain = () => {
 
   const [searchOrder, setSearchOrder] = useState("");
   const [statusList] = useState([
-    "Paid",
-    "Not Paid",
-    "Paid And Delivered",
-    "Paid Not Yet Delivered",
+    "Đã trả tiền",
+    "Chưa trả tiền",
+    "Đã trả tiền và đã vận chuyển",
+    "Đã trả tiền nhưng chưa vận chuyển",
   ]);
   const [selectedStatus, setSelectedStatus] = useState();
   const [sortList] = useState([
-    "Total: low -> high",
-    "Total: high -> low",
-    "Date: newest",
-    "Date: oldest",
+    "Thấp -> Cao",
+    "Cao -> Thấp",
+    "Mới nhất",
+    "Lâu nhất",
   ]);
   const [selectedSort, setSelectedSort] = useState();
 
@@ -43,15 +43,15 @@ const OrderMain = () => {
   const getFilterStatus = () => {
     if (!selectedStatus) {
       return searchOrders;
-    } else if (selectedStatus === "Paid") {
+    } else if (selectedStatus === "Đã trả tiền") {
       return searchOrders?.filter((order) => order.isPaid === true);
-    } else if (selectedStatus === "Not Paid") {
+    } else if (selectedStatus === "Chưa trả tiền") {
       return searchOrders?.filter((order) => order.isPaid === false);
-    } else if (selectedStatus === "Paid And Delivered") {
+    } else if (selectedStatus === "Đã trả tiền và đã vận chuyển") {
       return searchOrders?.filter(
         (order) => order.isPaid === true && order.isDelivered === true
       );
-    } else if (selectedStatus === "Paid Not Yet Delivered") {
+    } else if (selectedStatus === "Đã trả tiền nhưng chưa vận chuyển") {
       return searchOrders?.filter(
         (order) => order.isPaid === true && order.isDelivered === false
       );
@@ -70,19 +70,19 @@ const OrderMain = () => {
   const getSortOrder = () => {
     if (!selectedSort) {
       return filterStatus;
-    } else if (selectedSort === "Total: low -> high") {
+    } else if (selectedSort === "Thấp -> Cao") {
       return filterStatus?.sort(
         (a, b) => parseFloat(a.totalPrice) - parseFloat(b.totalPrice)
       );
-    } else if (selectedSort === "Total: high -> low") {
+    } else if (selectedSort === "Cao -> Thấp") {
       return filterStatus?.sort(
         (a, b) => parseFloat(b.totalPrice) - parseFloat(a.totalPrice)
       );
-    } else if (selectedSort === "Date: newest") {
+    } else if (selectedSort === "Mới nhất") {
       return filterStatus?.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-    } else if (selectedSort === "Date: oldest") {
+    } else if (selectedSort === "Lâu nhất") {
       return filterStatus?.sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
       );
@@ -94,7 +94,7 @@ const OrderMain = () => {
   return (
     <section className="content-main">
       <div className="content-header">
-        <h2 className="content-title">Orders</h2>
+        <h2 className="content-title">Đơn hàng</h2>
       </div>
 
       <div className="card mb-4 shadow-sm">

@@ -11,7 +11,7 @@ const CategoriesTable = (props) => {
   const dispatch = useDispatch();
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure ?")) {
+    if (window.confirm("Bạn có chắc không ?")) {
       dispatch(deleteCategory(id));
     }
   };
@@ -22,9 +22,9 @@ const CategoriesTable = (props) => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            {isEdit ? "" : <th className="text-end">Action</th>}
+            <th>Tên</th>
+            <th>Mô tả</th>
+            {isEdit ? "" : <th className="text-end">Hành động</th>}
           </tr>
         </thead>
         {/* Table Data */}
@@ -79,14 +79,14 @@ const CategoriesTable = (props) => {
                           className="dropdown-item"
                           to={`/categories/${category._id}`}
                         >
-                          Edit info
+                          Sửa
                         </Link>
                         <Link
                           className="dropdown-item text-danger"
                           to="#"
                           onClick={() => deleteHandler(category._id)}
                         >
-                          Delete
+                          Xóa
                         </Link>
                       </div>
                     </div>

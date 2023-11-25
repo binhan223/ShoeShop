@@ -68,10 +68,10 @@ const EditCategory = (props) => {
       <Toast />
       <section className="content-main">
         <div className="content-header">
-          <h2 className="content-title">Update Category</h2>
+          <h2 className="content-title">Cập nhật danh mục</h2>
           <div>
             <Link to="/category" className="btn btn-primary">
-              Create category
+             Tạo danh mục
             </Link>
           </div>
         </div>
@@ -117,7 +117,7 @@ const EditCategory = (props) => {
 
                     <div className="d-grid">
                       <button type="submit" className="btn btn-primary py-3">
-                        Update now
+                        Cập nhật
                       </button>
                     </div>
                   </form>

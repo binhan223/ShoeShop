@@ -25,10 +25,10 @@ const MainProducts = () => {
   const [searchProduct, setSearchProduct] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
   const [sortChoose] = useState([
-    "Latest added",
-    "Oldest added",
-    "Price: low -> high",
-    "Price: hight -> low",
+    "Mới nhất",
+    "Lâu nhất",
+    "Thấp -> Cao",
+    "Cao -> Thấp",
   ]);
   const [selectedSort, setSelectedSort] = useState();
 
@@ -73,17 +73,17 @@ const MainProducts = () => {
   const getSortList = () => {
     if (!selectedSort) {
       return filterList;
-    } else if (selectedSort === "Latest added") {
+    } else if (selectedSort === "Mới nhất") {
       return filterList?.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-    } else if (selectedSort === "Oldest added") {
+    } else if (selectedSort === "Lâu nhất") {
       return filterList?.sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
       );
-    } else if (selectedSort === "Price: low -> high") {
+    } else if (selectedSort === "Thấp -> Cao") {
       return filterList?.sort((a, b) => (a.price > b.price ? 1 : -1));
-    } else if (selectedSort === "Price: hight -> low") {
+    } else if (selectedSort === "Cao -> Thấp") {
       return filterList?.sort((a, b) => (a.price > b.price ? -1 : 1));
     }
   };
@@ -93,10 +93,10 @@ const MainProducts = () => {
   return (
     <section className="content-main">
       <div className="content-header">
-        <h2 className="content-title">Products</h2>
+        <h2 className="content-title">Sản phẩm</h2>
         <div>
           <Link to="/addproduct" className="btn btn-primary">
-            Create new
+            Tạo mới
           </Link>
         </div>
       </div>
@@ -107,7 +107,7 @@ const MainProducts = () => {
             <div className="col-lg-4 col-md-6 me-auto ">
               <input
                 type="search"
-                placeholder="Search..."
+                placeholder="Tìm kiếm..."
                 className="form-control p-2"
                 onChange={(e) => setSearchProduct(e.target.value)}
               />
@@ -123,7 +123,7 @@ const MainProducts = () => {
                   className="form-select"
                   onChange={handleCategoryChange}
                 >
-                  <option value="">Select a category</option>
+                  <option value="">Chọn danh mục</option>
                   {categories.map((category) => (
                     <option value={category._id} key={category._id}>
                       {category.name}
@@ -138,7 +138,7 @@ const MainProducts = () => {
                 className="form-select"
                 onChange={handleSortChange}
               >
-                <option value="">Select a sort</option>
+                <option value="">Sắp xếp theo</option>
                 {sortChoose.map((sort) => (
                   <option value={sort} key={sort}>
                     {sort}
@@ -170,7 +170,7 @@ const MainProducts = () => {
               ) : (
                 <div className="d-flex justify-content-center col-12">
                   <div className="alert alert-warning">
-                    No product, please create new.
+                   Không có sản phẩm, vui lòng tạo mới.
                   </div>
                 </div>
               )}
