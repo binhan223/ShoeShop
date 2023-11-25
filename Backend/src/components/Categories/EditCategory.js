@@ -47,11 +47,11 @@ const EditCategory = (props) => {
       dispatch({ type: CATEGORY_UPDATE_RESET });
       toast.success("Category Updated", ToastObject);
     } else {
-      if (!category.name || category._id !== categoryId) {
+      if (!category || !category.name || category._id !== categoryId) {
         dispatch(editCategory(categoryId));
       } else {
-        setName(category.name);
-        setDescription(category.description);
+        setName(category.name || '');
+        setDescription(category.description || '');
         setIsEdit(true);
         dispatch(lisCategories());
       }
